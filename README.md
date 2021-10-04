@@ -5,7 +5,7 @@
 ## Authors
 Puneet Tokhi: @puneettokhi
 
-Sai Kapadekar: @
+Sai Kapadekar: @Sai-kapadekar
 
 Shivang Patel: @Shivang-Patel
 
