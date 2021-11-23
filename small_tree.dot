@@ -1,0 +1,33 @@
+digraph Tree {
+node [shape=box, style="rounded", color="black", fontname="helvetica"] ;
+edge [fontname="helvetica"] ;
+0 [label="Non_college_jobs <= 2.6\nsquared_error = 5.5\nsamples = 93\nvalue = 1.0"] ;
+1 [label="Non_college_jobs <= 1.2\nsquared_error = 0.5\nsamples = 83\nvalue = 0.2"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label="Non_college_jobs <= 0.1\nsquared_error = 0.1\nsamples = 73\nvalue = -0.0"] ;
+1 -> 2 ;
+3 [label="squared_error = 0.0\nsamples = 50\nvalue = -0.2"] ;
+2 -> 3 ;
+4 [label="squared_error = 0.1\nsamples = 23\nvalue = 0.4"] ;
+2 -> 4 ;
+5 [label="College_jobs <= 0.2\nsquared_error = 0.5\nsamples = 10\nvalue = 2.0"] ;
+1 -> 5 ;
+6 [label="squared_error = 0.0\nsamples = 1\nvalue = 3.1"] ;
+5 -> 6 ;
+7 [label="squared_error = 0.2\nsamples = 9\nvalue = 1.8"] ;
+5 -> 7 ;
+8 [label="Non_college_jobs <= 8.5\nsquared_error = 6.8\nsamples = 10\nvalue = 5.8"] ;
+0 -> 8 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+9 [label="Non_college_jobs <= 5.8\nsquared_error = 0.7\nsamples = 6\nvalue = 3.9"] ;
+8 -> 9 ;
+10 [label="squared_error = 0.3\nsamples = 5\nvalue = 3.6"] ;
+9 -> 10 ;
+11 [label="squared_error = -0.0\nsamples = 1\nvalue = 5.5"] ;
+9 -> 11 ;
+12 [label="Non_college_jobs <= 11.8\nsquared_error = 0.5\nsamples = 4\nvalue = 8.9"] ;
+8 -> 12 ;
+13 [label="squared_error = 0.0\nsamples = 3\nvalue = 8.4"] ;
+12 -> 13 ;
+14 [label="squared_error = 0.0\nsamples = 1\nvalue = 10.0"] ;
+12 -> 14 ;
+}
