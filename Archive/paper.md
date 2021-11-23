@@ -18,8 +18,19 @@ Many students after finishing high school have either a vague idea about their c
 ![fig 2](images/Fig-2.png) 
 ```Fig 2: Unemployment rates for the 10 least ranked majors based on median salary```
 
-
 # Methods
+## 1. Clustering using DBSCAN
+One of the methods which we used for the analysis was Clustering using DBSCAN. For the analysis, `grad-students.csv` file was used as the dataset to perform clustering using DBSCAN. Since the number of clusters were not pre-defined, DBSCAN generated clusters based on the provided parameters. DBSCAN[@ester1996density] requires radius as a parameter and minimum number of core points to be within the circle defined by the radius to form a cluster. There are two major factors to keep in mind while prioritizing economic factors in choosing a major. These two factors are salary and employment opportunity. Both of these factors go hand in hand to ensure the financial success post graduation. Therefore, we decided to perform clustering on the two features: Major Category and Median Salary. This will give us an idea on what average salary to expect from each major and major category.
+
+![fig 3](images/Fig3.jpeg)            
+```Fig 3: DBSCAN Clustering on Major Category and Median Salary```
+	
+Looking at Fig 3, we can conclude that most of the majors pay in the range of $60,000 - $80,000. We then calculated the employment rate from the data that was available to us and performed clustering on features - Employment Rate and Major Category.
+
+On the other hand, Fig 4 shows us DBSCAN Clustering on Major Category and Employment Rate. Combining the results of both these plots show us that even though employment rates are pretty high in category 6 (Education), it is infeasible considering the median pay. Category 13 (Physical Sciences) seems to be the safest choice with good pay and employment opportunities. But, if one is willing to aim for a high end salary, category 7 (Engineering) is a good choice as it pays better than every other category but some majors have lower employment than others.
+
+![fig 4](images/Fig4.jpeg) 
+```Fig 4: DBSCAN Clustering on Major Category and Employment Rate```
 
 # Comparisons
 
