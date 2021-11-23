@@ -19,6 +19,10 @@ Many students after finishing high school have either a vague idea about their c
 ```Fig 2: Unemployment rates for the 10 least ranked majors based on median salary```
 
 # Methods
+
+Dataset
+The dataset used in this analysis is from American Community Survey 2010-2012 Public Use Microdata Series. This dataset contains information about college majors. Five csv's detailing a list of majors considered for this study, statistical information about graduate students with age less than 28 and more than 25, and a comprehensive file about all ages. It also contains data about women employment in STEM fields. The dataset was pretty clean and only handling of missing and null values was required as a part of preprocessing. To visualize the data we have used correlation matrix, bar charts, line plots, box plots and scatter plots. Methods such as DBSCAN clustering, Random Forest Regression and dimenisonality methods like Principal Component Analysis, Single value decomposition, Locally linear embedding and Distributed Stochastic Neighbor Embedding are used for data analysis. 
+
 ## 1. Clustering using DBSCAN
 One of the methods which we used for the analysis was Clustering using DBSCAN. For the analysis, `grad-students.csv` file was used as the dataset to perform clustering using DBSCAN. Since the number of clusters were not pre-defined, DBSCAN generated clusters based on the provided parameters. DBSCAN[@ester1996density] requires radius as a parameter and minimum number of core points to be within the circle defined by the radius to form a cluster. There are two major factors to keep in mind while prioritizing economic factors in choosing a major. These two factors are salary and employment opportunity. Both of these factors go hand in hand to ensure the financial success post graduation. Therefore, we decided to perform clustering on the two features: Major Category and Median Salary. This will give us an idea on what average salary to expect from each major and major category.
 
@@ -31,6 +35,20 @@ On the other hand, Fig 4 shows us DBSCAN Clustering on Major Category and Employ
 
 ![fig 4](images/Fig4.jpeg) 
 ```Fig 4: DBSCAN Clustering on Major Category and Employment Rate```
+
+## 2. Random Forest Regression
+
+![fig 5](images/Fig5.jpeg)
+```Fig 5: High variance in Low wage jobs based on Major Category and Number of College jobs```
+
+Random forest regression proved to be an ideal method for 'recent-grads.csv' dataset file as we were predicting the values of low wage jobs in a particular major category on the basis of unemployment rate, jobs that require a college degree and jobs that don't require a college degree. Also it was evident from the plot above,Fig 5 that this field displayed high variance based on these factors. A single analysis method or a decision tree would not give accurate results so a supervised learning method on continuous values was selected which is random forest regression.
+
+Our dataset had categorical values namely the field of 'Major_category'.But regression model requires numerical values for the algorithm. To handle this best possible method was to perform one hot encoding[3]. Further to increase the accuracy of model Robust Scalar feature scaling was performed. Robust Scaling can handle skewed data as well as outliers optimally as it removes the median and scales the data according to the quantile range(IQR). The InterQuartileRange is the range between the 1st quartile (25th quantile) and the 3rd quartile (75th quantile). After scaling the data, the dataset was divided in training dataset and testing dataset and was run over random forest regressor algorithm to device a model. Further steps could still be taken if time permits, to improve the accuracy of the model. 
+
+![fig 6](images/Fig6.jpeg)
+```Fig 6: Randomly selected decision tree of depth 3```
+
+It is evident from the above decision tree that where jobs that don't require a college degree and especially in the field of Communication and Journalism, the number of low wage jobs are high.
 
 # Comparisons
 
