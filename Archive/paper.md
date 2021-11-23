@@ -48,6 +48,15 @@ Our dataset had categorical values namely the field of 'Major_category'.But regr
 
 It is clear from the above decision tree that the number of low-wage jobs is high especially in the field of Communication and Journalism where a college degree isn't required to work.
 
+## 3. Principal Component Analysis 
+ Principal component analysis [@wold1987principal] is a technique for dimensionality reduction, which increases the interpretability of the data but at the same time minimizes information loss. The consolidated data of all the majors for graduate, undergraduate, female students and the encoded values for the majors and major categories leads to multiple columns and it is hard to draw inferences and visualize from this consolidated data, hence by using principal component analysis we can reduce the data to those columns whose values lead to maximum variation. The PCA algorithm forms principal components on which the variance of the data is to be measured upon and these are compared to get the component that produces maximum variation.  
+
+![fig 7](images/Fig7.png) ```Fig 7 : Percentage variation produced by each Principal Component```  
+
+After applying the PCA algorithm we can see that the majority of the variation is along with the first two components (Fig 7) namely, PC1 and PC2. Hence, a 2D graph using these two components will do a good job representing the original data. In Fig 8 we can see that the samples form clusters which indicate that the samples on the right are correlated to each other and the samples on the left are correlated to each other. Also, the separation between the samples indicates how similar they are to each other, the closer the samples are to each other the more similar they are and vice versa. The top ten loading scores for the principal component show us the values which play a role in separating the samples.
+
+![fig 8](images/Fig8.png) ```Fig 8 : Plotting the samples based on the Principal Component 1 and Principal Component 2```
+
 # Conclusions
 
 
