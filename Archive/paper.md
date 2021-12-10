@@ -56,34 +56,36 @@ Our dataset had categorical values namely the field of 'Major_category'. But, re
 It is clear from the above decision tree that the number of low-wage jobs is high especially in the field of Communication and Journalism where a college degree isn't required to work.
 
 ## 3. Dimensionality Reduction
+
 ### i. Introduction
 Dimensionality reduction method transforms the data from a high-dimensional space into a low-dimensional space, while preserving some meaningful properties of the original data, so that we can derive useful information and it is easy to visualize the data in a lower dimension like 2-D or 3-D. For performing dimensionality reduction we implemented t-SNE[@vandermaaten08a]. t-SNE stand for t-distributed stochastic neighbor embedding it a statistical technique for visualizing high-dimensional data, it gives each datapoint a location in a two or three-dimensional map. 
 
-![fig 7](images/Fig7.png) ```Fig 7 : Plotting the samples after applying t-SNE```  
-
 ### ii. Implementation
-In the combined data frame, we first discard the insignificant columns which won't be used in our analysis. The t-SNE technique requires numerical data, to overcome this problem we implement one-hot encoding. The t-SNE algorithm gives us an output of an array which helped us in mapping the data in two dimensional space. The result of the t-SNE plot shows us that the data in combined data frame is even and there is very less overlap within the data.  
+In the combined data frame, we first discard the insignificant columns which won't be used in our analysis. The t-SNE technique requires numerical data, to overcome this problem we implement one-hot encoding. The t-SNE algorithm gives us an output of an array which helped us in mapping the data in two dimensional space. The result of the t-SNE plot shows us that the data in combined data frame is even and there is very less overlap within the data.  After applying the PCA algorithm, we can see that the majority of the variation is along the first two components (Fig 7) namely, PC1 and PC2. Hence, a 2D graph using these two components will do a good job representing the original data. If we take a look at Fig 8, we can see that the samples form clusters which indicate that the samples on the right are correlated to each other and the samples on the left are correlated to each other. Also, the separation between the samples indicates how similar they are to each other, the closer the samples are to each other the more similar they are and vice versa. The top ten loading scores for the principal component show us the values which play a role in separating the samples.
 
-After applying the PCA algorithm we can see that the majority of the variation is along with the first two components (Fig 7) namely, PC1 and PC2. Hence, a 2D graph using these two components will do a good job representing the original data. If we take a look at Fig 8, we can see that the samples form clusters which indicate that the samples on the right are correlated to each other and the samples on the left are correlated to each other. Also, the separation between the samples indicates how similar they are to each other, the closer the samples are to each other the more similar they are and vice versa. The top ten loading scores for the principal component show us the values which play a role in separating the samples.
+![fig 7](images/Fig7.png) ```
+Fig 7 : Plotting the samples after applying t-SNE```  
 
-![fig 8](images/Fig8.png) ```Fig 8 : Plotting the samples after applying k Means clustering```
+![fig 8](images/Fig8.png) ```
+Fig 8 : Plotting the samples after applying k Means clustering```
 
 # Comparisons
 ## 1. K-Means
 Before selecting DBSCAN as our preferred algorithm, we tried implementing Clustering using K-Means algorithm. K-Means takes the number of clusters that we want as a parameter, and groups the data accordingly using Euclidean distance between the point and each centroid. The point that is nearest to a centroid is then considered within that cluster. After all points are assigned, the algorithm calculates new centroid using the mean. These steps repeat until the centroids don’t change. However, the problem with using K-means for our dataset was that as the number of clusters are defined, we don't have much control over the algorithm on how we want to group our data. Elbow Method also didn't provide the data in the way we desired. 
 
 We tried to cluster together college major degrees on the basis of the number of jobs that require a graduate degree in that major. This would give an idea of majors that have high number of jobs or low number of jobs requiring a college degree. Fig 9 shows a plot of college majors data depicting the number of low wage jobs despite the high demand of graduate degrees in the field. This does not give us a clear idea about how the data is distributed.
+
 ![fig 9](images/Fig9.png)
 ```Fig 9 : Plot of college majors data showing the number of low wage jobs despite the high demand of graduates in the field```
 
 The range of field 'college_jobs' is very high in the dataset. To scale this data the best method is Min max scaler. Similarly, the field of 'low_wage_jobs' is scaled. Since the distribution of major ranks data is uniform, standard scaler is used. After the data is scaled, K-means algorithm is implemented. Initially, the number of clusters is set to 3 and k-means++ method is initialized to select the centroids in smart way rather than random to improve the accuracy of the model. This model yields below 3 clusters as shown in Fig 10. 
+
 ![fig 10](images/Fig10.png)
 ```Fig 10 : Three clusters obtained from K-means```
 
 Therefore, we decided to research other clustering algorithms, and came across DBSCAN, Random Forest Regression and Dimensionality Reduction which turned out to be the right methods for our dataset and we ended up analyzing the data using these methods.
 
 ## 2. PCA
-
 Before selecting the t-SNE algorithm for dimensionality reduction, we implemented Principal Component Analysis. Principal component analysis (PCA) is the process of computing the principal components and using them to perform a change of basis on the data, sometimes using only the first few principal components and ignoring the rest. The result of applying PCA was  that the first two principal components caused a variance of 39.8\% while the other principal components accounted for the rest this lead to a loss of a lot of data in the analysis and would lead to a very inaccurate analysis. Therefore, we implemented t-SNE as it does not lead to loss of data when applied and also outliers in the data produce very little change in the data.
 
 # Conclusions
