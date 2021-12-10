@@ -34,3 +34,25 @@ To solve this problem, we have considered applying the data mining techniques of
 
 ## 5. How will you measure success?
 For this project, We have decided to implement clustering, regression and dimensionality reduction. Accuracy of these models can be measured by using confusion matrix, classification report or accuracy score.
+
+# Instructions to run:
+You will require Jupyter Notebook or any Python IDE with Python 3.0 or later installed to run the code.
+Change the directory of the data while loading it.
+
+Our project also requires the following libraries:
+
+1. pandas
+2. matplotlib
+3. seaborn
+4. numpy
+
+
+These libraries should be imported
+
+However, following libraries would require `pip install`:
+1. scipy
+2. sklearn
+3. kneed
+4. pydot
+5. umap
+
