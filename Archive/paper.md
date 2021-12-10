@@ -1,7 +1,7 @@
 ---
-title: College Major Analysis based on economic factors
-date: "November, 2021"
-author: Puneet Tokhi, Sai Kapadekar, Shivang Patel, Aaryaneil Nimbalkar- San José State University
+Title: College Major Analysis based on economic factors
+Date: "November, 2021"
+Authors: Puneet Tokhi, Sai Kapadekar, Shivang Patel, Aaryaneil Nimbalkar- San José State University
 
 header-includes: |
   \usepackage{booktabs}
