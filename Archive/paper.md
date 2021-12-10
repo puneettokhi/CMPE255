@@ -41,13 +41,14 @@ On the other hand, Fig 4 shows us DBSCAN Clustering on Major Category and Employ
 ```Fig 4: DBSCAN Clustering on Major Category and Employment Rate```
 
 ## 2. Random Forest Regression
+### i. Introduction
+Another method that we used in our analysis was Random forest regression. It proved to be an ideal method for 'recent-grads.csv' dataset file as we were predicting the values of low-wage jobs in a particular major category based on the unemployment rate, jobs that require a college degree, and jobs that don't require a college degree. Also, if we look at Fig 5, it is evident that this field displayed high variance based on these factors. A single analysis method or a decision tree would not give accurate results so a supervised learning method on continuous values was selected which is random forest regression.
 
 ![fig 5](images/Fig5.png)
 ```Fig 5: High variance in Low wage jobs based on Major Category and Number of College jobs```
 
-Another method that we used in our analysis was Random forest regression. It proved to be an ideal method for 'recent-grads.csv' dataset file as we were predicting the values of low-wage jobs in a particular major category based on the unemployment rate, jobs that require a college degree, and jobs that don't require a college degree. Also, if we look at Fig 5, it is evident that this field displayed high variance based on these factors. A single analysis method or a decision tree would not give accurate results so a supervised learning method on continuous values was selected which is random forest regression.
-
-Our dataset had categorical values namely the field of 'Major_category'.But regression model requires numerical values for the algorithm. To handle this best possible method was to perform one hot encoding[@seger_an]. Further to increase the accuracy of the model Robust Scalar feature scaling was performed. Robust Scaling can handle skewed data as well as outliers optimally as it removes the median and scales the data according to the quantile range(IQR). The InterQuartileRange is the range between the 1st quartile (25th quantile) and the 3rd quartile (75th quantile). After scaling the data, the dataset was divided into a training dataset and a testing dataset and was run over a random forest regressor algorithm to device a model. Further steps could still be taken if time permits, to improve the accuracy of the model. 
+### ii. Implementation
+Our dataset had categorical values namely the field of 'Major_category'. But, regression model requires numerical values for the algorithm. To handle this, best possible method was to perform one hot encoding[@seger_an]. Further to increase the accuracy of the model, Robust Scalar feature scaling was performed. Robust Scaling can handle skewed data as well as outliers optimally as it removes the median and scales the data according to the quantile range(IQR). The IQR is the range between the 1st quartile (25th quantile) and the 3rd quartile (75th quantile). After scaling the data, the dataset was divided into training dataset and testing dataset, and was run over a random forest regressor algorithm to device a model. Further steps could still be taken if the time permits, to improve the accuracy of the model. 
 
 ![fig 6](images/Fig6.png)
 ```Fig 6: Randomly selected decision tree of depth 3```
@@ -65,7 +66,17 @@ After applying the PCA algorithm we can see that the majority of the variation i
 
 # Comparisons
 ## 1. K-Means
-Before selecting DBSCAN as our preferred algorithm, we tried implementing Clustering using K-Means algorithm. K-Means takes the number of clusters that we want as a parameter, and groups the data accordingly using Euclidean distance between the point and each centroid. The point that is nearest to a centroid is then considered within that cluster. After all points are assigned, the algorithm calculates new centroid using the mean. These steps repeat until the centroids don’t change. However, the problem with using K-means for our dataset was that as the number of clusters are defined, we don't have much control over the algorithm on how we want to group our data. Elbow Method also didn't provide the data in the way we desired. Therefore, we decided to research other clustering algorithms, and came across DBSCAN, which turned out to be the right method for our dataset and we ended up analyzing our data using DBSCAN.
+Before selecting DBSCAN as our preferred algorithm, we tried implementing Clustering using K-Means algorithm. K-Means takes the number of clusters that we want as a parameter, and groups the data accordingly using Euclidean distance between the point and each centroid. The point that is nearest to a centroid is then considered within that cluster. After all points are assigned, the algorithm calculates new centroid using the mean. These steps repeat until the centroids don’t change. However, the problem with using K-means for our dataset was that as the number of clusters are defined, we don't have much control over the algorithm on how we want to group our data. Elbow Method also didn't provide the data in the way we desired. 
+
+We tried to cluster together college major degrees on the basis of the number of jobs that require a graduate degree in that major. This would give an idea of majors that have high number of jobs or low number of jobs requiring a college degree. Fig 9 shows a plot of college majors data depicting the number of low wage jobs despite the high demand of graduate degrees in the field. This does not give us a clear idea about how the data is distributed.
+![fig 9](images/Fig9.png)
+```Fig 9 : Plot of college majors data showing the number of low wage jobs despite the high demand of graduates in the field```
+
+The range of field 'college_jobs' is very high in the dataset. To scale this data the best method is Min max scaler. Similarly, the field of 'low_wage_jobs' is scaled. Since the distribution of major ranks data is uniform, standard scaler is used. After the data is scaled, K-means algorithm is implemented. Initially, the number of clusters is set to 3 and k-means++ method is initialized to select the centroids in smart way rather than random to improve the accuracy of the model. This model yields below 3 clusters as shown in Fig 10. 
+![fig 10](images/Fig10.png)
+```Fig 10 : Three clusters obtained from K-means```
+
+Therefore, we decided to research other clustering algorithms, and came across DBSCAN, Random Forest Regression which turned out to be the right methods for our dataset and we ended up analyzing our data using these methods.
 
 # Conclusions
 
