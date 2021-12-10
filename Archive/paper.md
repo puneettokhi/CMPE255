@@ -55,14 +55,18 @@ Our dataset had categorical values namely the field of 'Major_category'. But, re
 
 It is clear from the above decision tree that the number of low-wage jobs is high especially in the field of Communication and Journalism where a college degree isn't required to work.
 
-## 3. Principal Component Analysis 
- Principal component analysis [@wold1987principal] is a technique for dimensionality reduction, which increases the interpretability of the data but at the same time minimizes information loss. The consolidated data of all the majors for graduate, undergraduate, female students and the encoded values for the majors and major categories leads to multiple columns and it is hard to draw inferences and visualize from this consolidated data, hence by using principal component analysis we can reduce the data to those columns whose values lead to maximum variation. The PCA algorithm forms principal components on which the variance of the data is to be measured upon and these are compared to get the component that produces maximum variation.  
+## 3. Dimensionality Reduction
+### i. Introduction
+Dimensionality reduction tranforms the data from a high-dimensional  space into a low-dimensional space, while preserving some meaningful properties of the original data, so that we can derive useful information and it is easy to visualize the data in a lower dimension like 2-D or 3-D. For performing dimensionality reduction we implemented t-SNE[@vandermaaten08a]. t-SNE stand for t-distributed stochastic neighbor embedding it a statstical technique for visualizing high-dimensional data, it gives each datapoint a location in a two or three-dimensional map. 
 
-![fig 7](images/Fig7.png) ```Fig 7 : Percentage variation produced by each Principal Component```  
+![fig 7](images/Fig7.png) ```Fig 7 : Plotting the samples after applying t-SNE```  
+
+### ii. Implementation
+In the combined dataframe we first discard the puropseless columns which won't be used in our analysis. The t-SNE technique requires numerical data, to overcome this problem we implement one-hot encoding. The t-SNE algorithm gives us an output of an array which helped us in mapping the data in two dimensional space. The result of the t-SNE plot shows us that the data in combined dataframe is even and there is very less overlap within the data.  
 
 After applying the PCA algorithm we can see that the majority of the variation is along with the first two components (Fig 7) namely, PC1 and PC2. Hence, a 2D graph using these two components will do a good job representing the original data. If we take a look at Fig 8, we can see that the samples form clusters which indicate that the samples on the right are correlated to each other and the samples on the left are correlated to each other. Also, the separation between the samples indicates how similar they are to each other, the closer the samples are to each other the more similar they are and vice versa. The top ten loading scores for the principal component show us the values which play a role in separating the samples.
 
-![fig 8](images/Fig8.png) ```Fig 8 : Plotting the samples based on the Principal Component 1 and Principal Component 2```
+![fig 8](images/Fig8.png) ```Fig 8 : Plotting the samples after applying k Means clustering```
 
 # Comparisons
 ## 1. K-Means
@@ -78,7 +82,11 @@ The range of field 'college_jobs' is very high in the dataset. To scale this dat
 
 Therefore, we decided to research other clustering algorithms, and came across DBSCAN, Random Forest Regression which turned out to be the right methods for our dataset and we ended up analyzing our data using these methods.
 
+## 2. PCA
+
+Before selecting the t-SNE algorithm for dimensionality reduction, we implemented Principal Componenet Analysis. Principal component analysis (PCA) is the process of computing the principal components and using them to perform a change of basis on the data, sometimes using only the first few principal components and ignoring the rest. The result of applying PCA was  that the first two principal components caused a variance of 39.8% while the other principal components accounted for the rest this lead to a loss of a lot of data in the analysis and would lead to a very inaccurate analysis. Therefore, we implemented t-SNE as it does not lead to loss of an data when applied and also outliers in the data produce very little change in the data.
+
 # Conclusions
-In this paper, we provide a statistical and intuitive analysis on how economic factors are affected by different majors using appropriate methods. Using different data mining algorithms like Clustering, Regression and Dimensionality Reduction we further manipulated the data to extract information which is not directly visible to the user so one can narrow down the options based on his/her preferences. We used five csv files in this project as our dataset and analyzed data based on different factors like unemployment rate, median income, share of women as a total(womenshare) etc. From our analysis using both visualization of the dataset and applying algorithms, we conclude that deciding your college major plays a pivotal role in your economic success and future growth.
+In this paper, we provide a statiscal and intuitive analysis on how ecnomocial factors are affected by different majors using appropriate methods. Using different data mining algorithms like Clustering, Regression and Dimensionality Reduction we further manipulated with the data to extract information which is not directly visible to the user so one can narrow down the options based on his/her preferences.
 
 # References
