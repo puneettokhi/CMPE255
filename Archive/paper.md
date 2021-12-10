@@ -79,6 +79,6 @@ The range of field 'college_jobs' is very high in the dataset. To scale this dat
 Therefore, we decided to research other clustering algorithms, and came across DBSCAN, Random Forest Regression which turned out to be the right methods for our dataset and we ended up analyzing our data using these methods.
 
 # Conclusions
-In this paper, we provide a statiscal and intuitive analysis on how ecnomocial factors are affected by different majors using appropriate methods. Using different data mining algorithms like Clustering, Regression and Dimensionality Reduction we further manipulated with the data to extract information which is not directly visible to the user so one can narrow down the options based on his/her preferences.
+In this paper, we provide a statistical and intuitive analysis on how economic factors are affected by different majors using appropriate methods. Using different data mining algorithms like Clustering, Regression and Dimensionality Reduction we further manipulated the data to extract information which is not directly visible to the user so one can narrow down the options based on his/her preferences. We used five csv files in this project as our dataset and analyzed data based on different factors like unemployment rate, median income, share of women as a total(womenshare) etc. From our analysis using both visualization of the dataset and applying algorithms, we conclude that deciding your college major plays a pivotal role in your economic success and future growth.
 
 # References
